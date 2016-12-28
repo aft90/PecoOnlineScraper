@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebDriverExtensions.Helpers
+namespace PecoOnlineScraper.Helpers
 {
     public class WebDriverFactory
     {
