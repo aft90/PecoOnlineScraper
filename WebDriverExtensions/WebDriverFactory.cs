@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebDriverExtensions
+namespace WebDriverExtensions.Helpers
 {
     public class WebDriverFactory
     {
