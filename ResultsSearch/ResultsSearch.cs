@@ -19,7 +19,7 @@ namespace PecoOnlineScraper.Results
 
         public IEnumerable<double> RetrieveResults(IWebDriver driver)
         {
-            return GetPricesList(GetResultsTable(driver)).Select(webElement => Double.Parse(webElement.Text));
+            return GetPricesList(GetResultsTable(driver)).Select(webElement => Double.Parse(webElement.Text)).ToList();
         }
     }
 }
