@@ -7,16 +7,29 @@ namespace PecoOnlineScraper.Main
 {
     class Program
     {
+
+        private static IEnumerable<string> LoadJudete()
+        {
+            return System.IO.File.ReadLines("lista-judete.txt");
+        }
+
         static void Main(string[] args)
         {
-            var listaJudete = new List<string> { "Timis", "Olt", "Teleorman", "Bucuresti", "Bihor", "Salaj", "Cluj" };
+            var listaJudete = LoadJudete();
             PecoSearch search = new PecoSearch();
             try
             {
                 search.Start();
                 var r = search.SearchGplPrice(listaJudete);
-                foreach (var i in r["Bucuresti"]) Console.WriteLine(i);
-                search.Close();
+                foreach(string j in listaJudete)
+                {
+                    Console.Write(j + " => ");
+                    foreach(double pret in r[j])
+                    {
+                        Console.Write(pret + " ");
+                    }
+                    Console.WriteLine();
+                }
             }
             catch(Exception e)
             {
