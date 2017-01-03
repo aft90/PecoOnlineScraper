@@ -16,8 +16,6 @@ namespace PecoOnlineScraper.Helpers
             var service = PhantomJSDriverService.CreateDefaultService();
             service.IgnoreSslErrors = true;
             service.SslProtocol = "any";
-            service.LoadImages = false;
-            service.DiskCache = true;
             var driver = new PhantomJSDriver(service);
             driver.Manage().Window.Size = new System.Drawing.Size(1920, 1080);
             return driver;

@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{73B9EB2F-C3DD-486C-9C8C-D615118F8173}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{30CC5656-B3C2-4BD7-9961-A0EA663ABB54}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PecoOnlineScraper</RootNamespace>
-    <AssemblyName>PecoOnlineScraper</AssemblyName>
+    <RootNamespace>PecoOnlineSearch</RootNamespace>
+    <AssemblyName>PecoOnlineSearch</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -48,27 +45,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="PecoSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\packages\PhantomJS.2.1.1\tools\phantomjs\phantomjs.exe">
-      <Link>phantomjs.exe</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="phantomjs-license.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PecoOnlineSearch\PecoOnlineSearch.csproj">
-      <Project>{30cc5656-b3c2-4bd7-9961-a0ea663abb54}</Project>
-      <Name>PecoOnlineSearch</Name>
+    <ProjectReference Include="..\NavigationSteps\NavigationSteps.csproj">
+      <Project>{8630b3f1-d3a4-4f31-9b19-4ff7edc94d7a}</Project>
+      <Name>NavigationSteps</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ResultsSearch\ResultsSearch.csproj">
+      <Project>{09b88682-2321-4026-af8a-99ccfb58bffa}</Project>
+      <Name>ResultsSearch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebDriverExtensions\WebDriverHelpers.csproj">
+      <Project>{510b776f-d801-4c0d-8745-5ac7685898e1}</Project>
+      <Name>WebDriverHelpers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
