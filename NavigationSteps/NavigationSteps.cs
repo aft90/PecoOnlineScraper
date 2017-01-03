@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using PecoOnlineScraper.Helpers;
 
 namespace PecoOnlineScraper.Steps
 {
@@ -28,12 +29,18 @@ namespace PecoOnlineScraper.Steps
             button.Click();           
         }
 
+        private void WaitForResults(IWebDriver driver)
+        {
+            driver.WaitForElement(By.Id("tabelaRezultate"), 20);
+        }
+
         public void SearchGplJudet(IWebDriver driver, string judet)
         {
             ClickJudetRadio(driver);
             ClickGPLRadio(driver);
             SetJudet(driver, judet);
             ClickSearch(driver);
+            WaitForResults(driver);
         }
 
         
