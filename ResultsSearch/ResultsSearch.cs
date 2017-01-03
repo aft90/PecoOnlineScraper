@@ -14,16 +14,14 @@ namespace PecoOnlineScraper.Results
             return driver.WaitForElement(By.Id("tabelaRezultate"), 20);
         }
 
-        public IReadOnlyCollection<double> RetrieveResults(IWebDriver driver)
+        private IEnumerable<IWebElement> GetPricesList(IWebElement table)
         {
-            List<double> results = new List<double>();
-            IWebElement resultsTable = GetResultsTable(driver);
-            var r = resultsTable.FindElements(By.CssSelector(".pretTD"));
-            foreach(var e in r)
-            {
-                results.Add(Double.Parse(e.Text));
-            }
-            return results;
+            return table.FindElements(By.CssSelector(".pretTD"));
+        }
+
+        public IEnumerable<double> RetrieveResults(IWebDriver driver)
+        {
+            return GetPricesList(GetResultsTable(driver)).Select(webElement => Double.Parse(webElement.Text));
         }
     }
 }
