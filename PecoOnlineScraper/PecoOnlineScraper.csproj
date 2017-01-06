@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
@@ -71,6 +72,14 @@
     <ProjectReference Include="..\PecoOnlineSearch\PecoOnlineSearch.csproj">
       <Project>{30cc5656-b3c2-4bd7-9961-a0ea663abb54}</Project>
       <Name>PecoOnlineSearch</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ResultsSave\ResultsSave.csproj">
+      <Project>{ecdd4463-fd5d-4862-8afc-34a38a99b34a}</Project>
+      <Name>ResultsSave</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SearchData\SearchData.csproj">
+      <Project>{b33521f2-7ef6-4ffc-b987-4805b7b4d83e}</Project>
+      <Name>SearchData</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
