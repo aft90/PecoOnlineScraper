@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResultsSearch", "ResultsSea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PecoOnlineSearch", "PecoOnlineSearch\PecoOnlineSearch.csproj", "{30CC5656-B3C2-4BD7-9961-A0EA663ABB54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchData", "SearchData\SearchData.csproj", "{B33521F2-7EF6-4FFC-B987-4805B7B4D83E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResultsSave", "ResultsSave\ResultsSave.csproj", "{ECDD4463-FD5D-4862-8AFC-34A38A99B34A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{30CC5656-B3C2-4BD7-9961-A0EA663ABB54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30CC5656-B3C2-4BD7-9961-A0EA663ABB54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30CC5656-B3C2-4BD7-9961-A0EA663ABB54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B33521F2-7EF6-4FFC-B987-4805B7B4D83E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B33521F2-7EF6-4FFC-B987-4805B7B4D83E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B33521F2-7EF6-4FFC-B987-4805B7B4D83E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B33521F2-7EF6-4FFC-B987-4805B7B4D83E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECDD4463-FD5D-4862-8AFC-34A38A99B34A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECDD4463-FD5D-4862-8AFC-34A38A99B34A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECDD4463-FD5D-4862-8AFC-34A38A99B34A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECDD4463-FD5D-4862-8AFC-34A38A99B34A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
