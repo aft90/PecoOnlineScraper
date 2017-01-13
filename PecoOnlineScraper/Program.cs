@@ -4,11 +4,14 @@ using System.Configuration;
 using PecoOnlineScraper.Search;
 using PecoOnlineScraper.Data;
 using PecoOnlineScraper.Save;
+using log4net;
 
 namespace PecoOnlineScraper.Main
 {
     class Program
     {
+
+        private static readonly ILog logger = LogManager.GetLogger(typeof(Program));
 
         private static IEnumerable<string> LoadJudete()
         {
@@ -25,7 +28,6 @@ namespace PecoOnlineScraper.Main
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
                 throw e;
             }
             finally
@@ -53,7 +55,7 @@ namespace PecoOnlineScraper.Main
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                logger.Error("Exception occurred", e);
             }
         }
     }
