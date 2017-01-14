@@ -22,14 +22,14 @@ namespace PecoOnlineScraper.Search
 
         public PecoSearch()
         {
-            phantomJS = WebDriverFactory.PhantomJSWebDriver();
             logger.Debug("Start PhantomJS");
+            phantomJS = WebDriverFactory.PhantomJSWebDriver();
         }
 
         public void Start()
         {
-            phantomJS.Navigate().GoToUrl("http://www.peco-online.ro/");
             logger.Debug("Navigate to http://www.peco-online.ro");
+            phantomJS.Navigate().GoToUrl("http://www.peco-online.ro/");
         }
 
         public IDictionary<string, IEnumerable<double>> SearchGplPrice(IEnumerable<string> judete)
@@ -46,8 +46,8 @@ namespace PecoOnlineScraper.Search
 
         public void Close()
         {
-            phantomJS.Quit();
             logger.Debug("Stop PhantomJS");
+            phantomJS.Quit();
         }
 
 
