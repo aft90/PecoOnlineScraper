@@ -24,7 +24,7 @@ namespace PecoOnlineScraper.Steps
 
         private void SetJudet(IWebDriver driver, string judet)
         {
-            logger.Debug(string.Format("Set {0} in search box", judet));
+            logger.Debug(string.Format("Set '{0}' in search box", judet));
             IWebElement textbox = driver.FindElement(By.Id("nume_locatie"));
             textbox.Clear();
             textbox.SendKeys(judet);
