@@ -15,11 +15,12 @@ namespace PecoOnlineScraper.Search
     {
 
         private static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly string pecoUrl = "http://www.peco-online.ro";
 
         private readonly NavigationSteps navigationSteps = new NavigationSteps();
         private readonly ResultsSearch resultsSearch = new ResultsSearch();
         private readonly IWebDriver phantomJS; 
-
+        
         public PecoSearch()
         {
             logger.Debug("Start PhantomJS");
@@ -28,8 +29,8 @@ namespace PecoOnlineScraper.Search
 
         public void Start()
         {
-            logger.Debug("Navigate to http://www.peco-online.ro");
-            phantomJS.Navigate().GoToUrl("http://www.peco-online.ro/");
+            logger.Debug("Navigate to "+ pecoUrl);
+            phantomJS.Navigate().GoToUrl(pecoUrl);
         }
 
         public IDictionary<string, IEnumerable<double>> SearchGplPrice(IEnumerable<string> judete)
