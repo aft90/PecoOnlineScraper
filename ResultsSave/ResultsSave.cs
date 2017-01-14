@@ -97,7 +97,7 @@ namespace PecoOnlineScraper.Save
             try
             {
                 command.Parameters["when"].Value = metadata.SearchTime;
-                int searchId = (int)command.ExecuteScalar();
+                int searchId = Convert.ToInt32(command.ExecuteScalar());
                 command.Transaction.Commit();
                 return searchId;
             }
