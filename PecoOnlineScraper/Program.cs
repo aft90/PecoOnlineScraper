@@ -44,6 +44,10 @@ namespace PecoOnlineScraper.Main
                 ResultsSave saver = new ResultsSave(cs);
                 saver.SaveResults(data);
             }
+            else
+            {
+                logger.Warn("No database connection string configured, will not save results");
+            }
         }
 
         static void Main(string[] args)
