@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using PecoOnlineScraper.Data;
 
+using log4net;
+
 namespace PecoOnlineScraper.Save
 {
     public class ResultsSave
     {
+
+        private readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private readonly string connectionString;
         public ResultsSave(string connectionString)
         {
@@ -24,7 +29,7 @@ namespace PecoOnlineScraper.Save
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                throw e;
             }
             finally
             {
@@ -61,6 +66,7 @@ namespace PecoOnlineScraper.Save
 
         private void SaveData(SqlConnection connection, int searchId, IDictionary<string, IEnumerable<double>> data)
         {
+            logger.Debug("Save data");
             SqlCommand command = GetInsertDataCommand(connection);
             try
             {
@@ -70,6 +76,7 @@ namespace PecoOnlineScraper.Save
                     command.Parameters["jud"].Value = kv.Key;
                     foreach(double pret in kv.Value)
                     {
+                        logger.Debug(string.Format("Insert: {0} - {1}", kv.Key, pret));
                         command.Parameters["val"].Value = pret;
                         command.ExecuteNonQuery();
                     }
@@ -85,6 +92,7 @@ namespace PecoOnlineScraper.Save
 
         private int SaveMetadata(SqlConnection connection, SearchMetadata metadata)
         {
+            logger.Debug(string.Format("Save search metadata for {0}", metadata.SearchTime));
             SqlCommand command = GetInsertMetadataCommand(connection);
             try
             {
