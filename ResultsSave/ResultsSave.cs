@@ -66,17 +66,17 @@ namespace PecoOnlineScraper.Save
 
         private void SaveData(SqlConnection connection, int searchId, IDictionary<string, IEnumerable<double>> data)
         {
-            logger.Debug("Save data");
             SqlCommand command = GetInsertDataCommand(connection);
             try
             {
                 command.Parameters["id"].Value = searchId;
                 foreach(var kv in data)
                 {
+                    logger.Info(string.Format("Save data for: {0}", kv.Key));
                     command.Parameters["jud"].Value = kv.Key;
                     foreach(double pret in kv.Value)
                     {
-                        logger.Debug(string.Format("Insert: {0} - {1}", kv.Key, pret));
+                        logger.Debug(string.Format("Save data point: {0} - {1}", kv.Key, pret));
                         command.Parameters["val"].Value = pret;
                         command.ExecuteNonQuery();
                     }
@@ -92,7 +92,7 @@ namespace PecoOnlineScraper.Save
 
         private int SaveMetadata(SqlConnection connection, SearchMetadata metadata)
         {
-            logger.Debug(string.Format("Save search metadata for {0}", metadata.SearchTime));
+            logger.Info(string.Format("Save search metadata for search run on {0}", metadata.SearchTime));
             SqlCommand command = GetInsertMetadataCommand(connection);
             try
             {
