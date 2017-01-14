@@ -54,7 +54,7 @@ namespace PecoOnlineScraper.Save
 
         private SqlCommand GetInsertMetadataCommand(SqlConnection connection)
         {
-            string commandText = "INSERT INTO cautare_peco_metadate(data_cautare) VALUES (@when); SELECT SCOPE_ID();";
+            string commandText = "INSERT INTO cautare_peco_metadate(data_cautare) VALUES (@when); SELECT SCOPE_IDENTITY();";
             SqlTransaction transaction = connection.BeginTransaction();
             SqlCommand command = connection.CreateCommand();
             command.Transaction = transaction;
