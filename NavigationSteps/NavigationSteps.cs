@@ -30,6 +30,13 @@ namespace PecoOnlineScraper.Steps
             textbox.SendKeys(judet);
         }
 
+        private void UncheckOutdatedRadio(IWebDriver driver)
+        {
+            logger.Debug("Uncheck 'outdated' radio button");
+            IWebElement radio = driver.FindElement(By.Id("farapret"));
+            if (radio.Selected) radio.Click();
+        }
+
         private void ClickSearch(IWebDriver driver)
         {
             logger.Debug("Click search button");
@@ -48,6 +55,7 @@ namespace PecoOnlineScraper.Steps
             ClickJudetRadio(driver);
             ClickGPLRadio(driver);
             SetJudet(driver, judet);
+            UncheckOutdatedRadio(driver);
             ClickSearch(driver);
             WaitForResults(driver);
         }
