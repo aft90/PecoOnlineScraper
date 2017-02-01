@@ -52,14 +52,17 @@ namespace PecoOnlineScraper.Main
 
         static void Main(string[] args)
         {
-            try
+            using (NDC.Push(String.Format("run-id: {0}", Guid.NewGuid().ToString())))
             {
-                SearchData data = GetResults();
-                SaveResults(data);
-            }
-            catch(Exception e)
-            {
-                logger.Error("Exception occurred", e);
+                try
+                {
+                    SearchData data = GetResults();
+                    SaveResults(data);
+                }
+                catch (Exception e)
+                {
+                    logger.Error("Exception occurred", e);
+                }
             }
         }
     }
