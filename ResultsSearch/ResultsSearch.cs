@@ -24,9 +24,19 @@ namespace PecoOnlineScraper.Results
             return table.FindElements(By.CssSelector(".pretTD"));
         }
 
+        private double? TryParsePrice(string input)
+        {
+            double result = 0;
+            return Double.TryParse(input, out result) ?  new double? (result) : null;
+        }
+
         public IEnumerable<double> RetrieveResults(IWebDriver driver)
         {
-            return GetPricesList(GetResultsTable(driver)).Select(webElement => Double.Parse(webElement.Text)).ToList();
+            return GetPricesList(GetResultsTable(driver))
+                .Select(webElement => TryParsePrice(webElement.Text))
+                .Where(possiblePrice => possiblePrice.HasValue)
+                .Select(possiblePrice => possiblePrice.Value)
+                .ToList();
         }
     }
 }
