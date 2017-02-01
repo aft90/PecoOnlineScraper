@@ -40,8 +40,7 @@ namespace PecoOnlineScraper.Steps
         private void ClickSearch(IWebDriver driver)
         {
             logger.Debug("Click search button");
-            IWebElement button = driver.FindElement(By.Name("Submit"));
-            button.Click();
+            driver.FindElement(By.Name("Submit")).Click();
         }
 
         private void WaitForResults(IWebDriver driver)
