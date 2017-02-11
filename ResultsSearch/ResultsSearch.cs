@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 using log4net;
@@ -27,7 +28,7 @@ namespace PecoOnlineScraper.Results
         private double? TryParsePrice(string input)
         {
             double result = 0;
-            return Double.TryParse(input, out result) ?  new double? (result) : null;
+            return Double.TryParse(input, NumberStyles.Number, CultureInfo.InvariantCulture, out result) ?  new double? (result) : null;
         }
 
         public IEnumerable<double> RetrieveResults(IWebDriver driver)
