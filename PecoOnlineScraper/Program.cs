@@ -4,7 +4,9 @@ using System.Configuration;
 using PecoOnlineScraper.Search;
 using PecoOnlineScraper.Data;
 using PecoOnlineScraper.Save;
+using PecoOnlineScraper.Config;
 using log4net;
+
 
 namespace PecoOnlineScraper.Main
 {
@@ -15,7 +17,8 @@ namespace PecoOnlineScraper.Main
 
         private static IEnumerable<string> LoadJudete()
         {
-            return System.IO.File.ReadLines("lista-judete.txt");
+            IJudetSettings js = (dynamic)ConfigurationManager.GetSection("judetSettings");
+            return js.Judete;
         }
 
         private static SearchData GetResults()
