@@ -16,10 +16,10 @@ namespace PecoOnlineScraper.Steps
             driver.FindElement(By.Id("Judet")).Click();
         }
 
-        private void ClickGPLRadio(IWebDriver driver)
+        private void SelectGPLInDropdown(IWebDriver driver)
         {
-            logger.Debug("Click 'GPL' radio button");
-            driver.FindElement(By.Id("GPL")).Click();
+            logger.Debug("Select 'GPL' in dropdown");
+            driver.FindElement(By.Id("carburant")).SendKeys("G");
         }
 
         private void SetJudet(IWebDriver driver, string judet)
@@ -28,13 +28,6 @@ namespace PecoOnlineScraper.Steps
             IWebElement textbox = driver.FindElement(By.Id("nume_locatie"));
             textbox.Clear();
             textbox.SendKeys(judet);
-        }
-
-        private void UncheckOutdatedRadio(IWebDriver driver)
-        {
-            logger.Debug("Uncheck 'outdated' radio button");
-            IWebElement radio = driver.FindElement(By.Id("farapret"));
-            if (radio.Selected) radio.Click();
         }
 
         private void ClickSearch(IWebDriver driver)
@@ -52,9 +45,8 @@ namespace PecoOnlineScraper.Steps
         public void SearchGplJudet(IWebDriver driver, string judet)
         {
             ClickJudetRadio(driver);
-            ClickGPLRadio(driver);
+            SelectGPLInDropdown(driver);
             SetJudet(driver, judet);
-            UncheckOutdatedRadio(driver);
             ClickSearch(driver);
             WaitForResults(driver);
         }
