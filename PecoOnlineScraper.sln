@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchData", "SearchData\Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResultsSave", "ResultsSave\ResultsSave.csproj", "{ECDD4463-FD5D-4862-8AFC-34A38A99B34A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{102B0DD3-C4E0-43F7-A262-DFE48FDEE7E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickScrapeTest", "QuickScrapeTest\QuickScrapeTest.csproj", "{BE87ED13-226D-4943-9A55-0373BC425CC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,8 +55,15 @@ Global
 		{ECDD4463-FD5D-4862-8AFC-34A38A99B34A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECDD4463-FD5D-4862-8AFC-34A38A99B34A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECDD4463-FD5D-4862-8AFC-34A38A99B34A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE87ED13-226D-4943-9A55-0373BC425CC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE87ED13-226D-4943-9A55-0373BC425CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE87ED13-226D-4943-9A55-0373BC425CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE87ED13-226D-4943-9A55-0373BC425CC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BE87ED13-226D-4943-9A55-0373BC425CC6} = {102B0DD3-C4E0-43F7-A262-DFE48FDEE7E7}
 	EndGlobalSection
 EndGlobal
